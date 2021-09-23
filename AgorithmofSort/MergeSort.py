@@ -1,47 +1,29 @@
-def merge(a,l,m,r):
-    i = l
-    j = m+1
-    k = l
-    b = a.copy()
-
-    while i <= m and j <= r :
-
-        if a[i] < a[j] :
-            b[k] = a[i]
-            i += 1
-            k += 1
-
-        else :
-            b[k] = a[j]
-            j += 1
-            k += 1
-
-    if i > m :
-        for n in range(j,r+1):
-            b[k] = a[n]
-            k = k+1
-
-    else :
-        for n in range(i,m+1):
-            b[k] = a[n]
-            k = k + 1
-
-    a = b.copy()
-    print(a)
-
-    # b =a.copy()
-
-
-
 def mergeSort(a,l,r):
-    #배열 a[]부분 배열 a[l:r]을 오름 차순 정렬
-    #print("-----------------------------------------------")
     if  r > l:
         m = (r+l) // 2
         mergeSort(a,l,m)
         mergeSort(a,m+1,r)
-        merge(a,l,m,r)
 
+        # 1. 복사 하기 b[]에 a[]를 복사 
+        #    b에 인덱스 1 ~ m 까지 a에 똑같이 복사
+        #    b에 인덱스 m 이후 a의 역순으로 복사
+        #   -> 만약 a = [1,5,8,9,2,3,7,10]이면  b = [1,5,8,9,10,7,3,2] 이다
+        for i in range(m+1,l,-1):
+            b[i-1] = a[i-1]
+        i -= 1
+        for j in range(m,r):
+            b[r+m-j] = a[j+1]
+        j += 1
+        # 2. a에 정렬된 값으로 다시 넣기
+        #       b[i]와 b[j]를 비교 해서 작은 값을 넣음
+        for k in range(l,r+1):
+            if b[i] < b[j] :
+                a[k] = b[i]
+                i += 1
+            else :
+                a[k] = b[j]
+                j -= 1
+        
 
 def checkSort(a, n):
 
@@ -69,7 +51,7 @@ def checkSort(a, n):
 
 import random, time
 
-N = 1000
+N = 100000
 
 a = []
 b = []
