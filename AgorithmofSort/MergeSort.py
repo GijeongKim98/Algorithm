@@ -59,9 +59,9 @@ c = []
 d = [-1,6,2,8,1,3,9,4,5,10,7]
 
 
-a.append(None) # a[0]의 값 더미키
-b.append(None) # b[0]의 값 더미키
-c.append(None) # c[0]의 값 더미키
+a.append(None) # a[0]의 값 
+b.append(None) # b[0]의 값 
+c.append(None) # c[0]의 값 
 
 for i in range(N):
 
@@ -71,9 +71,9 @@ for i in range(N):
 
 start_time = time.time()
 
-mergeSort(a, 1, N)
+mergeSort(c, 1, N)
 
 end_time = time.time() - start_time
 
-print("합병정렬의 실행 시간 (N=%d, 랜덤배열) : %0.3f"%(N, end_time))
-checkSort(a,N)
+print("합병정렬의 실행 시간 (N=%d, 역순배열) : %0.3f"%(N, end_time))
+checkSort(c,N)

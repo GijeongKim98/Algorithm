@@ -1,30 +1,30 @@
 def heapify(a,h,m):
     v = a[h]
     j = 2 * h
+
     while j <= m :
+
         if j < m and a[j] < a[j+1]:
             j += 1
+
         if v >= a[j]:
-            exit
+            break
+
         else :
             a[j//2] = a[j]
+
         j *= 2
-    a[j/2] = v
+
+    a[j//2] = v
 
 def heapSort(a ,n) :
-    for i in range(n/2,0,-1):
-                    
-    # b =a.copy()
 
+    for i in range(n//2,0,-1):
+        heapify(a,i,n)
 
-
-def quickSort(a,l,r):
-    #배열 a[]부분 배열 a[l:r]을 오름 차순 정렬
-    #print("-----------------------------------------------")
-    if  r > l:
-        i = partition(a,l,r)
-        quickSort(a,l,i-1)
-        quickSort(a,i+1,r)
+    for i in range(n-1,0,-1):
+        a[1], a[i+1] = a[i+1], a[1]
+        heapify(a,1,i)
     
 
 def checkSort(a, n):
@@ -53,7 +53,7 @@ def checkSort(a, n):
 
 import random, time
 
-N = 1000
+N = 100000
 
 a = []
 b = []
@@ -61,9 +61,9 @@ c = []
 d = [-1,6,2,8,1,3,9,4,5,10,7]
 
 
-a.append(-1) # a[0]의 값 더미키
-b.append(-1) # b[0]의 값 더미키
-c.append(-1) # c[0]의 값 더미키
+a.append(None) # a[0]의 값 더미키
+b.append(None) # b[0]의 값 더미키
+c.append(None) # c[0]의 값 더미키
 
 for i in range(N):
 
@@ -73,9 +73,9 @@ for i in range(N):
 
 start_time = time.time()
 
-quickSort(c, 1, N)
+heapSort(c, N)
 
 end_time = time.time() - start_time
 
-print("퀵정렬의 실행 시간 (N=%d, 정렬배열) : %0.3f"%(N, end_time))
+print("히프정렬의 실행 시간 (N=%d, 역순배열) : %0.3f"%(N, end_time))
 checkSort(c,N)
