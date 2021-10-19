@@ -267,11 +267,11 @@ while (i < len(li)):
 
 for x in li:
     print (x)
-'''
+
 for i in range(10) : # range(i) == [0,1,2,3, ... , i-1]
     print (li[i])
     # error code  index가 4 가 될수 없음
-'''
+
 for i in range( len(li) ) : 
     print (li[i])  
 
@@ -400,3 +400,7 @@ print(a)
     #   output : sorted list
     #   bubble, selection, insertion, merge, quick
 
+
+a = [1]
+p  = (a[3] == None)
+print(p)

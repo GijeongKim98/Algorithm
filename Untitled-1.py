@@ -1,42 +1,89 @@
-a = [None,2,1,123,256]
+def mergeSort(a, l, r):
+    if(r>l) :
+        m = int((l+r)/2)
+        mergeSort(a, l, m)
+        mergeSort(a, m+1, r)
+        merge(a, l, m ,r)
 
-def mergeSort(a,l,r):
-    if  r > l:
-        m = (r+l) // 2
-        mergeSort(a,l,m)
-        print("a 왼쪽 =", a)
-        mergeSort(a,m+1,r)
-        print("a 오른쪽 =", a)
-        
-        b = a.copy()
-    
+def merge(a,l,m,r):
+    i,j,k = l,m+1,l
 
-        while i <= m and j <= r :
-            print("b = ",b)
-
-            if a[i] < a[j] :
-                b[k] = a[i]
-                i += 1
-                k += 1
-
-            else :
-                b[k] = a[j]
-                j += 1
-                k += 1
-
-        if i > m :
-            for n in range(j,r+1):
-                b[k] = a[n]
-                k = k + 1
-                print(b)
-
+# 왼쪽 또는 오른쪽 리스트중 첫번째 원소부터 비교하면서 작은거를 새로운 리스트에 추가
+# 왼쪽 또는 오른쪽 리스트중 하나라도 모든 원소를 추가했으면 종료
+    while i<=m and j <= r :
+        if(a[i] < a[j]) :
+            b[k] = a[i]
+            i, k = i+1, k+1
         else :
-            for n in range(i,m+1):
-                b[k] = a[n]
-                k = k + 1
-                print(b)
+            
+            b[k] = a[j]
+            j, k = j+1, k+1
 
-        a = b.copy()
-        print("a = ",a)
+# 왼쪽 리스트 원소를 모두 썼을때 오른쪽 리스트를 순서대로 가져온다
+    if(i>m):
+        for p in range(j,r+1):
+            b[k] = a[p]
+            k = k+1
+# 오른쪽 리스트 원소를 모두 썼을때 왼쪽 리스트를 순서대로 가져온다
+    else :
+        for p in range(i,m+1):
+            b[k] = a[p]
+            k = k+1
 
-mergeSort(a,1,4)
+# 새로운 리스트를 기존 리스트로 덮어쓰기
+    for p in range(l,r+1):
+        a[p] = b[p]
+     
+
+
+
+
+def checkSort(a, n):
+
+    isSorted = True
+
+    for i in range(1, n):
+
+        if a[i] > a[i+1]:
+
+            isSorted = False
+
+        if not isSorted:
+
+            break
+
+    if isSorted:
+
+        print("정렬 완료")
+
+    else:
+
+        print("정렬 오류 발생")
+
+
+
+import random, time
+
+
+
+N = 300000
+
+a = []
+b = []
+
+a.append(None)
+b.append(None)
+for i in range(N):
+
+    a.append(random.randint(1, N))
+
+
+start_time = time.time()
+b = a.copy()
+mergeSort(a, 1, N)
+
+end_time = time.time() - start_time
+
+print("합병 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
+
+checkSort(a, N)

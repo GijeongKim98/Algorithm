@@ -1,8 +1,8 @@
 def boubleSort(a,n) :
-    for i in range(n,1,-1): #[n,n-1,...,2]
-        for j in range(1,i): # [1,2,3,..,i-1]
-            if(a[j]>a[j+1]):
-                a[j+1], a[j] = a[j], a[j+1]
+    for i in range(1,n): #[n,n-1,...,2]
+        for j in range(i+1,n+1): # [1,2,3,..,i-1]
+            if a[i] < a[j]:
+                a[j], a[i] = a[i], a[j]
 
 
 def checkSort(a, n):
@@ -11,7 +11,7 @@ def checkSort(a, n):
 
     for i in range(1, n):
 
-        if a[i] > a[i+1]:
+        if a[i] < a[i+1]:
 
             isSorted = False
 
@@ -32,7 +32,7 @@ def checkSort(a, n):
 
 import random, time
 
-N = 10000
+N = 5000
 
 a = []
 b = []

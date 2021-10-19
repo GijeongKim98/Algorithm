@@ -1,8 +1,21 @@
-def boubleSort(a,n) :
-    for i in range(n,1,-1): #[n,n-1,...,2]
-        for j in range(1,i): # [1,2,3,..,i-1]
-            if(a[j]>a[j+1]):
-                a[j+1], a[j] = a[j], a[j+1]
+def cocktailShakeSort(a,n) :
+    r = n
+    l = 1
+
+    while l < r :
+     
+    # for i in range(n): #[1,2,3,...,n-1]
+        if i % 2 == 1:
+            for j in range (l,r,+1):
+                if a[j] > a[j+1]:
+                    a[j+1], a[j] = a[j], a[j+1]
+            r = r - 1
+        
+        else:
+            for k in range (r,l,-1):
+                if a[k] < a[k-1]:
+                    a[k-1], a[k] = a[k], a[k-1]
+            l = l + 1
 
 
 def checkSort(a, n):
@@ -32,7 +45,7 @@ def checkSort(a, n):
 
 import random, time
 
-N = 10000
+N = 5000
 
 a = []
 b = []
@@ -50,7 +63,7 @@ for i in range(N):
 
 start_time = time.time()
 
-boubleSort(a, N)
+cocktailShakeSort(a, N)
 
 end_time = time.time() - start_time
 

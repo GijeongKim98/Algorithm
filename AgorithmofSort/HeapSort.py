@@ -73,9 +73,9 @@ for i in range(N):
 
 start_time = time.time()
 
-heapSort(c, N)
+heapSort(a, N)
 
 end_time = time.time() - start_time
 
 print("히프정렬의 실행 시간 (N=%d, 역순배열) : %0.3f"%(N, end_time))
-checkSort(c,N)
+checkSort(a,N)
