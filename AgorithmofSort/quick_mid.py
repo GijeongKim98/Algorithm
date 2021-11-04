@@ -1,4 +1,3 @@
-
 def partition(a,l,r):
     #print(a)
     
@@ -30,10 +29,22 @@ def partition(a,l,r):
 def quickSort(a,l,r):
     #배열 a[]부분 배열 a[l:r]을 오름 차순 정렬
     #print("-----------------------------------------------")
-    if  r > l:
-        i = partition(a,l,r)
+    if  r - l > 1:
+        mid = int((l+r)/2)
+        if a[l] > a[mid]:
+            a[l], a[mid] = a[mid], a[l]
+        if a[mid] > a[r]:
+            a[mid], a[r] = a[r], a[mid]
+        if a[l] > a[mid]:
+            a[l], a[mid] = a[mid], a[l]
+
+        a[r-1] , a[mid] = a[mid], a[r-1]
+
+        i = partition(a,l+1,r-1)
         quickSort(a,l,i-1)
         quickSort(a,i+1,r)
+    elif a[l] > a[r]:
+        a[l], a[r] = a[r], a[l]
     
 
 def checkSort(a, n):
