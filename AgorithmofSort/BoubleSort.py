@@ -32,7 +32,7 @@ def checkSort(a, n):
 
 import random, time
 
-N = 10000
+N = 5000
 
 a = []
 b = []
@@ -50,9 +50,9 @@ for i in range(N):
 
 start_time = time.time()
 
-boubleSort(a, N)
+boubleSort(b, N)
 
 end_time = time.time() - start_time
 
 print("버블 정렬의 실행 시간 (N=%d, 정렬배열) : %0.3f"%(N, end_time))
-checkSort(a,N)
+checkSort(b,N)

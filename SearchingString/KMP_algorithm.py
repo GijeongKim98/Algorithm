@@ -41,4 +41,7 @@ def KMP(p,t):
 t = 'ababacabcbababcacacbcaababca\0'
 p = 'ababca'
 ilist = KMP(p,t)
-print(ilist)
+if len(ilist) > 0 :
+    print('패턴시작위치 :', ilist)
+else :
+    print("해당 패턴을 찾지못했습니다.")

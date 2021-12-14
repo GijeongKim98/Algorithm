@@ -48,7 +48,7 @@ def searchingrun (a,n):
 def naturalMergeSort(a,n):  
     indexList = searchingrun(a,n)
     k = len(indexList)
-    indexList.append(-100)
+    indexList.append(-100) # 맨마지막을 판별하기 위함
 #    print(k)
     cpList = []
 
@@ -123,9 +123,9 @@ for i in range(N):
 b = a.copy()
 start_time = time.time()
 
-naturalMergeSort(a, N)
+naturalMergeSort(c, N)
 
 end_time = time.time() - start_time
 
-print("자연합병정렬의 실행 시간 (N=%d, 랜덤배열) : %0.3f"%(N, end_time))
-checkSort(a,N)
+print("자연합병정렬의 실행 시간 (N=%d, 역순으로 정렬된 배열) : %0.3f"%(N, end_time))
+checkSort(c,N)

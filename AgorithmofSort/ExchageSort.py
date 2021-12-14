@@ -1,4 +1,4 @@
-def boubleSort(a,n) :
+def exchangeSort(a,n) :
     for i in range(1,n): #[n,n-1,...,2]
         for j in range(i+1,n+1): # [1,2,3,..,i-1]
             if a[i] < a[j]:
@@ -50,9 +50,9 @@ for i in range(N):
 
 start_time = time.time()
 
-boubleSort(a, N)
+exchangeSort(b, N)
 
 end_time = time.time() - start_time
 
-print("버블 정렬의 실행 시간 (N=%d, 정렬배열) : %0.3f"%(N, end_time))
-checkSort(a,N)
+print("교환 정렬의 실행 시간 (N=%d, 정렬배열) : %0.3f"%(N, end_time))
+checkSort(b,N)

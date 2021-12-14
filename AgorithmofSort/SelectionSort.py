@@ -1,4 +1,4 @@
-def selectionSort(a, n):
+def selectionSort1(a, n):
     for i in range(1,n) :#[1,2,3,4,5,...,n]
         minIndex = i
         for j in range(i+1,n+1) : #[i+1,...,n]
@@ -51,9 +51,9 @@ for i in range(N):
 
 start_time = time.time()
 
-selectionSort(c, N)
+selectionSort1(b, N)
 
 end_time = time.time() - start_time
 
-print("선택 정렬의 실행 시간 (N=%d, 역순배열) : %0.3f"%(N, end_time))
-checkSort(c,N)
+print("선택 정렬의 실행 시간 (N=%d, 정렬배열) : %0.3f"%(N, end_time))
+checkSort(b,N)

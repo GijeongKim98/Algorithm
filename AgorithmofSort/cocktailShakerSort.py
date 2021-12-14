@@ -63,9 +63,9 @@ for i in range(N):
 
 start_time = time.time()
 
-cocktailShakeSort(a, N)
+cocktailShakeSort(c, N)
 
 end_time = time.time() - start_time
 
-print("버블 정렬의 실행 시간 (N=%d, 정렬배열) : %0.3f"%(N, end_time))
-checkSort(a,N)
+print("칵테일쉐이커정렬의 실행 시간 (N=%d, 역순으로 정렬된 배열) : %0.3f"%(N, end_time))
+checkSort(c,N)

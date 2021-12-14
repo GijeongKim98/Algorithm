@@ -71,9 +71,9 @@ for i in range(N):
 
 start_time = time.time()
 
-mergeSort(a, 1, N)
+mergeSort(c, 1, N)
 
 end_time = time.time() - start_time
 
-print("합병정렬의 실행 시간 (N=%d, 역순배열) : %0.3f"%(N, end_time))
-checkSort(a,N)
+print("합병정렬의 실행 시간 (N=%d, 역순으로 정렬된 배열) : %0.3f"%(N, end_time))
+checkSort(c,N)
